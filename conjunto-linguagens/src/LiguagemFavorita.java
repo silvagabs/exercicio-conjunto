@@ -1,5 +1,10 @@
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -39,5 +44,21 @@ public class LiguagemFavorita {
 
         for (Linguagem linguagem:linguagemFav3) System.out.println(linguagem.getNome()+"-"
                         + linguagem.getIde()+"-"+linguagem.getAno());
+
+        System.out.println("\nOrdem por IDE:\n");                
+
+        List<Linguagem> linguagemFav4= new ArrayList<Linguagem>(linguagemFav);
+        
+        Collections.sort(linguagemFav4, new Comparator<Linguagem>() {
+            @Override
+            public int compare(Linguagem l1, Linguagem l2) {
+                return l1.getIde().compareTo(l2.getIde());
+            }
+        });
+
+        for (Linguagem linguagem:linguagemFav4) System.out.println(linguagem.getNome()+"-"
+                        + linguagem.getIde()+"-"+linguagem.getAno());
+
+        
     }
 }
