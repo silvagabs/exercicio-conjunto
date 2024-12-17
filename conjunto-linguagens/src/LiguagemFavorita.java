@@ -59,6 +59,38 @@ public class LiguagemFavorita {
         for (Linguagem linguagem:linguagemFav4) System.out.println(linguagem.getNome()+"-"
                         + linguagem.getIde()+"-"+linguagem.getAno());
 
-        
+        System.out.println("\nOrdem por ano e nome:\n");                
+
+                        Comparator<Linguagem> comparador = Comparator
+                        .comparing(Linguagem::getAno)
+                        .thenComparing(Linguagem::getNome);
+
+        Set<Linguagem> linguagemFav5=new TreeSet<Linguagem>(comparador){{
+
+            add(new Linguagem("Java","VsCode",1995));
+            add(new Linguagem("Python","IntelliJ", 1991));
+            add(new Linguagem("C++","Eclipse", 1990));
+
+        }};         
+        for (Linguagem linguagem:linguagemFav5) System.out.println(linguagem.getNome()+"-"
+                        + linguagem.getIde()+"-"+linguagem.getAno());   
+                        
+        System.out.println("\nOrdem por nome, ano e ide:\n");
+
+                        Comparator<Linguagem> comparador2 = Comparator
+                        .comparing(Linguagem::getNome)
+                        .thenComparing(Linguagem::getAno)
+                        .thenComparing(Linguagem::getIde);
+
+         Set<Linguagem> linguagemFav6=new TreeSet<Linguagem>(comparador2){{
+
+            add(new Linguagem("Java","VsCode",1995));
+            add(new Linguagem("Python","IntelliJ", 1991));
+            add(new Linguagem("C++","Eclipse", 1990));
+                
+        }};         
+        for (Linguagem linguagem:linguagemFav6) System.out.println(linguagem.getNome()+"-"
+                        + linguagem.getIde()+"-"+linguagem.getAno()); 
+
     }
 }
